@@ -1,0 +1,429 @@
+/* Retro Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* General Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url('background.jpg') no-repeat center center fixed; /* Background image */
+  color: #fff; /* White text */
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+}
+
+
+/* Define the Home Video font */
+@font-face {
+  font-family: 'Home Video';
+  src: url('fonts/Ticketing.ttf') format('truetype'); /* Absolute path from the root */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+/* CRT Monitor Effect */
+.retro-background {
+  position: relative;
+  background: radial-gradient(circle, #000, #111); /* Dark gradient */
+  animation: crt-flicker 0.1s infinite;
+  overflow: hidden; /* Hide overflow for scanlines */
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* Scanlines Effect */
+.retro-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.1) 2px,
+    rgba(255, 255, 255, 0.1) 4px
+  );
+  pointer-events: none;
+  animation: scanlines 1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); } /* Simulate moving scanlines */
+}
+
+/* Vignette Effect */
+.retro-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.8)); /* Darken edges */
+  pointer-events: none;
+}
+
+/* RGB Glitch Effect (Static) */
+.retro-background::before,
+.retro-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.retro-background::before {
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(255, 0, 0, 0.05) 2px,
+    rgba(255, 0, 0, 0.05) 4px
+  );
+}
+
+.retro-background::after {
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 255, 0.05) 2px,
+    rgba(0, 0, 255, 0.05) 4px
+  );
+}
+
+/* Retro Text */
+.retro-text {
+  color: #fff; /* White text */
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff; /* Glow effect */
+}
+
+/* Retro Cards */
+.retro-card {
+  background: #111; /* Dark background */
+  border: 2px solid #fff; /* White border */
+  padding: 20px;
+  border-radius: 0; /* Sharp edges for retro look */
+  box-shadow: 0 0 10px #fff; /* Glow effect */
+}
+
+.resume-button {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* Pixelated font */
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px 20px;
+  color: #ac53ffb9; /* Neon cyan text */
+  background: #111; /* Darker background for contrast */
+  border: 2px solid #ac53ffb9; /* Slimmer neon border */
+  text-shadow: 1px 1px 0px #000; /* Subtle pixel depth */
+  box-shadow: 0px 0px 4px rgba(132, 0, 255, 0.8); /* Smaller glow on click */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  outline: none; /* Remove default focus outline */
+}
+
+.resume-button:hover {
+  background: #ac53ffb9; /* Neon cyan background on hover */
+  color: #111; /* Dark text on hover */
+  text-shadow: 1px 1px 0px #000; /* Maintain subtle depth */
+  box-shadow: 0px 0px 12px rgba(132, 0, 255, 0.8); /* Brighter glow on hover */
+}
+
+.resume-button:active {
+  transform: scale(0.95); /* Slight shrink on click */
+  box-shadow: 0px 0px 4px #ac53ffb9; /* Smaller glow on click */
+}
+
+
+/* Retro Icons */
+.retro-icon {
+  filter: brightness(0) invert(1); /* Make icons white */
+}
+
+/* Intro Container */
+.intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1500px; /* Constrain width for desktop */
+  padding: 20px 40px;
+  box-sizing: border-box;
+  gap: 40px; /* Space between sections */
+}
+
+/* Left Section */
+.intro-left {
+  max-width: 45%;
+  text-align: left;
+  margin-left: 10%;
+  
+}
+
+.intro-name {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.intro-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+
+}
+
+
+.contact-card{
+  margin-top: 130px;
+  background: #000000b9;
+  padding: 5px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 30px;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced hover shadow */
+}
+
+.contact-info {
+  margin: px 0;
+  color: #ffffff;
+}
+
+/* Right Section */
+.intro-right {
+  max-width: 60%;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+.intro-right p {
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+}
+
+/* Language Experience Section */
+.language-experience {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for desktop */
+  gap: 30px; /* Spacing between cards */
+  margin-top: 30px;
+  justify-content: center; /* Center-align cards */
+}
+
+.language-card {
+  background: #000000b9;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.language-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced hover shadow */
+}
+
+.language-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.language-card h3 {
+  margin: 10px 0;
+  font-size: 1.3rem;
+  color: #61dafb;
+  font-weight: 600;
+}
+
+.language-card p {
+  font-size: 1rem;
+  color: #dcdcdc;
+  line-height: 1.4;
+}
+
+
+
+
+
+/* Responsive Design for Large Screens */
+@media (min-width: 1200px) {
+  /* Intro Container */
+  .intro-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Ensures even spacing */
+    width: 95%; /* Take up more of the screen */
+    max-width: 1800px; /* Allow larger screens to take full width */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Left Section */
+  .intro-left {
+    flex: 0 0 35%; /* Take 35% of the available width */
+    text-align: left;
+    margin-left: 0; /* Remove unnecessary margin */
+  }
+
+  /* Right Section */
+  .intro-right {
+    flex: 1; /* Allow it to take the remaining space */
+    max-width: 65%; /* Ensures it takes more space */
+    line-height: 1.8;
+    margin-top: 20px;
+    margin-left: 3%; /* Reduce unnecessary spacing */
+  }
+}
+
+
+
+
+/* Tablet Styles (769px - 1199px) */
+@media (min-width: 769px) and (max-width: 1199) {
+  .intro-container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 15px 30px;
+  }
+
+  .intro-left {
+    flex: 0 0 40%; /* Slightly wider left section on tablets */
+    margin-left: 5%;
+  }
+
+  .intro-right {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .intro-name {
+    font-size: 3rem;
+  }
+
+  .intro-title {
+    font-size: 1.5rem;
+  }
+
+  .language-experience {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 20px;
+  }
+
+  .language-card {
+    padding: 15px;
+  }
+
+  .language-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-card {
+    margin-top: 100px;
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+}
+
+/* Mobile Styles (up to 768px) */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .intro-left, .intro-right {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .intro-name {
+    font-size: 2.5rem;
+  }
+
+  .intro-title {
+    font-size: 1.2rem;
+  }
+
+  .language-experience {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 20px;
+  }
+
+  .language-card {
+    padding: 15px;
+  }
+
+  .language-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-card {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    padding: 8px;
+  }
+
+  /* Add specific mobile-only adjustments */
+  .resume-button {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+
+  .intro-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  .intro-name {
+    font-size: 2rem;
+  }
+
+  .intro-title {
+    font-size: 1rem;
+  }
+
+  .language-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .language-card p {
+    font-size: 0.9rem;
+  }
+
+  .contact-card {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}

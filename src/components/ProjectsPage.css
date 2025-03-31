@@ -1,0 +1,141 @@
+.projects-page {
+  padding: 2rem;
+  color: #fff;
+  min-height: 100vh;
+}
+
+
+
+
+
+a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent element */
+}
+
+a:visited {
+  color: inherit; /* Ensures visited links also have the same color as the rest of the text */
+}
+
+.projects-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  background: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background-color: #61dafb;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.project-card {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  height: 400px; /* Increase the height of the card */
+  margin: auto; /* Center the cards in the grid */
+}
+
+
+.project-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid; /* Use grid to stack the front and back faces */
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+}
+
+
+.project-card:hover .project-inner {
+  transform: rotateY(180deg);
+}
+
+.project-front,
+.project-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex; /* Use flexbox to align content */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: 1 / 1; /* Stack front and back faces */
+  text-decoration: none;
+  
+
+}
+
+.project-back {
+  transform: rotateY(180deg);
+  background-color: #1a1a1a; /* Match the front card background */
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+}
+
+
+
+.project-front {
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.project-image {
+  width: 100%;
+  height: 70%; /* Limit the image height */
+  object-fit: cover; /* Ensure the image covers the container proportionally */
+  border-radius: 8px;
+}
+
+.project-title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 50px;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 50px;
+  }
+
+}
